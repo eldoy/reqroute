@@ -38,7 +38,9 @@ const server = http.createServer(function(req, res) {
 
 ### Dynamic URLs
 
-`get` requests supports _dynamic URLs_. The parts of the URL that should be dynamic is prefixed by an _underscore_:
+`get` requests supports _dynamic URLs_.
+
+The parts of the URL that should be dynamic is prefixed by an _underscore_:
 
 ```js
 const routes = {
