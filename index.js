@@ -1,4 +1,5 @@
-function getFile(req, routes, name) {
+// Find dynamic routes
+function getRoute(req, routes, name) {
   for (const route in routes) {
     const pattern = route
       .split('/')
@@ -19,6 +20,7 @@ function getFile(req, routes, name) {
 }
 
 module.exports = function(req, routes) {
+  if (!req.params) req.params = {}
   const name = `${req.method.toLowerCase()}#${req.pathname.slice(1)}`
-  req.route = routes[name] || getFile(req, routes, name)
+  req.route = routes[name] || getRoute(req, routes, name)
 }
