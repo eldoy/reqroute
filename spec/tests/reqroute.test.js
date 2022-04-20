@@ -3,7 +3,7 @@ const router = require('../../index.js')
 
 const it = {}, x = {}
 
-x['should return empty from get non-existing path'] = async function() {
+it['should return empty from get non-existing path'] = async function() {
   const req = {
     pathname: '/none',
     method: 'GET',
