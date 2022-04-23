@@ -10,7 +10,7 @@ it['should return empty from get non-existing path'] = async function() {
     params: {}
   }
   const routes = {
-    'get#hello': 'hello'
+    'get#/hello': 'hello'
   }
   router(req, routes)
   assert.deepEqual(req.route, undefined)
@@ -23,7 +23,7 @@ it['should return route from get existing path'] = async function() {
     params: {}
   }
   const routes = {
-    'get#hello': 'hello'
+    'get#/hello': 'hello'
   }
   router(req, routes)
   assert.deepEqual(req.route, 'hello')
@@ -36,7 +36,7 @@ it['should return empty from wrong method'] = async function() {
     params: {}
   }
   const routes = {
-    'get#hello': 'hello'
+    'get#/hello': 'hello'
   }
   router(req, routes)
   assert.deepEqual(req.route, undefined)
@@ -49,7 +49,7 @@ it['should return empty from post non-existing path'] = async function() {
     params: {}
   }
   const routes = {
-    'post#hello': 'hello'
+    'post#/hello': 'hello'
   }
   router(req, routes)
   assert.deepEqual(req.route, undefined)
@@ -62,7 +62,7 @@ it['should return route from post existing path'] = async function() {
     params: {}
   }
   const routes = {
-    'post#hello': 'hello'
+    'post#/hello': 'hello'
   }
   router(req, routes)
   assert.deepEqual(req.route, 'hello')
@@ -75,7 +75,7 @@ it['should return include params from get dynamic path'] = async function() {
     params: {}
   }
   const routes = {
-    'get#project/_project_link': 'hello'
+    'get#/project/_project_link': 'hello'
   }
   router(req, routes)
   assert.deepEqual(req.route, 'hello')
@@ -89,7 +89,7 @@ it['should return include multiple params from get dynamic path'] = async functi
     params: {}
   }
   const routes = {
-    'get#project/_project_link/comment/_comment_id': 'hello'
+    'get#/project/_project_link/comment/_comment_id': 'hello'
   }
   router(req, routes)
   assert.deepEqual(req.route, 'hello')

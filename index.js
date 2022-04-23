@@ -21,6 +21,6 @@ function getRoute(req, routes, name) {
 
 module.exports = function(req, routes) {
   if (!req.params) req.params = {}
-  const name = `${req.method.toLowerCase()}#${req.pathname.slice(1)}`
+  const name = `${req.method.toLowerCase()}#${req.pathname}`
   req.route = routes[name] || getRoute(req, routes, name)
 }

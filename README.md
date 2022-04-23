@@ -19,8 +19,8 @@ const router = require('reqroute')
 
 // Create routes
 const routes = {
-  'get#hello': 'hello',
-  'post#project/create': 'project/create'
+  'get#/hello': 'hello',
+  'post#/project/create': 'project/create'
 }
 
 // NodeJS web server
@@ -44,7 +44,7 @@ The parts of the URL that should be dynamic is prefixed by an _underscore_:
 
 ```js
 const routes = {
-  'get#project/_project_link': 'project/show'
+  'get#/project/_project_link': 'project/show'
 }
 
 // Assume req.pathname is '/project/master'
