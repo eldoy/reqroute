@@ -21,6 +21,11 @@ function getRoute(req, routes, name) {
 
 module.exports = function(req, routes) {
   if (!req.params) req.params = {}
-  const name = `${req.method.toLowerCase()}#${req.pathname}`
+  const method = req.method.toLowerCase()
+
+  // Remove /api at the beginning for production servers
+  const path = req.pathname.replace(/^\/api\//, '/')
+
+  const name = `${method}#${path}`
   req.route = routes[name] || getRoute(req, routes, name)
 }
