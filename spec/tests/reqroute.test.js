@@ -185,8 +185,8 @@ it['should prefer direct match before dynamic'] = async function() {
     params: {}
   }
   const routes = {
-    'get#/direct': 'direct',
-    'get#/_index': 'hello'
+    'get#/_index': 'hello',
+    'get#/direct': 'direct'
   }
   router(req, routes)
   assert.deepEqual(req.route, 'direct')
