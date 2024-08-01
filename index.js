@@ -1,12 +1,12 @@
 // Find dynamic routes
 function getRoute(req, routes, name) {
-  for (const route in routes) {
-    const pattern = route
+  for (var route in routes) {
+    var pattern = route
       .split('/')
-      .map(x => x[0] == '_' ? '[^\/]+' : x)
+      .map((x) => (x[0] == '_' ? '[^/]+' : x))
       .join('/')
 
-    const match = new RegExp(`^\/?${pattern}$`).test(name)
+    var match = new RegExp(`^\/?${pattern}$`).test(name)
     if (!match) continue
 
     // Add params
@@ -19,13 +19,13 @@ function getRoute(req, routes, name) {
   }
 }
 
-module.exports = function(req, routes) {
+module.exports = function (req, routes) {
   if (!req.params) req.params = {}
-  const method = req.method.toLowerCase()
+  var method = req.method.toLowerCase()
 
   // Remove /api at the beginning for production servers
-  const path = req.pathname.replace(/^\/api\//, '/')
+  var path = req.pathname.replace(/^\/api\//, '/')
 
-  const name = `${method}#${path}`
+  var name = `${method}#${path}`
   req.route = routes[name] || getRoute(req, routes, name)
 }
